@@ -2,8 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Api::V1::UsersController, :type => :controller do
 
-  before(:each) { request.headers['Accept'] = "application/vnd.marketplace.v1, #{Mime::JSON}" }
-  before(:each) { request.headers['Content-type'] = Mime::JSON.to_s }
+  # - These calls bellow were added inside the support/request_helpers file.
+  # - configurated inside the spec_helper to be called before each request on the controller tests
+  # before(:each) { request.headers['Accept'] = "application/vnd.marketplace.v1, #{Mime::JSON}" }
+  # before(:each) { request.headers['Content-type'] = Mime::JSON.to_s }
 
   describe "GET #show" do
     
