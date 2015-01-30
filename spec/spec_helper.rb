@@ -15,6 +15,7 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require 'support/request_helpers'
+require 'devise'
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
@@ -40,8 +41,9 @@ RSpec.configure do |config|
   end
 
   #Include to test requests
-  config.include Request::JsonHelpers, :type => :controller
-  config.include Request::HeaderHelpers, :type => :controller
+  config.include Request::JsonHelpers, type: :controller
+  config.include Request::HeaderHelpers, type: :controller
+  config.include Devise::TestHelpers, type: :controller
 
   config.before(:each, type: :controller) do
     include_default_accept_headers
